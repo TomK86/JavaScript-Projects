@@ -1,0 +1,97 @@
+var elements = document.getElementsByTagName('*');
+
+for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+
+    for (var j = 0; j < element.childNodes.length; j++) {
+        var node = element.childNodes[j];
+
+        if (node.nodeType === 3) {
+            var text = node.nodeValue;
+            var replacedText = text.replace('(S)he', 'They')
+                                   .replace('(s)he', 'they')
+                                   .replace('S/he', 'They')
+                                   .replace('s/he', 'they')
+                                   .replace(/(\bHe and she\b|\bHe and She\b|\bShe and he\b|\bShe and He\b)/g, 'They')
+                                   .replace(/(\bhe and she\b|\bshe and he\b)/g, 'they')
+                                   .replace(/(\bHe\b|\bShe\b)/g, 'They')
+                                   .replace(/(\bhe\b|\bshe\b)/g, 'they')
+                                   .replace(/(\bHis and Hers\b|\bHis and hers\b|\bHers and His\b|\bHers and his\b)/g, 'Theirs')
+                                   .replace(/(\bhis and hers\b|\bhers and his\b)/g, 'theirs')
+                                   .replace(/(\bHis\b|\bHers\b)/g, 'Theirs')
+                                   .replace(/(\bhis\b|\bhers\b)/g, 'theirs')
+                                   .replace(/(\bHim and Her\b|\bHim and her\b|\bHer and Him\b|\bHer and him\b)/g, 'Them')
+                                   .replace(/(\bhim and her\b|\bher and him\b)/g, 'them')
+                                   .replace(/(\bHim\b|\bHer\b)/g, 'Them')
+                                   .replace(/(\bhim\b|\bher\b)/g, 'them')
+                                   .replace(/(\bHimself and Herself\b|\bHimself and herself\b|\bHerself and Himself\b|\bHerself and himself\b)/g, 'Themselves')
+                                   .replace(/(\bhimself and herself\b|\bherself and himself\b)/g, 'themselves')
+                                   .replace(/(\bHimself\b|\bHisself\b|\bHerself\b)/g, 'Themselves')
+                                   .replace(/(\bhimself\b|\bhisself\b|\bherself\b)/g, 'themselves')
+                                   .replace(/(\bMen and Women\b|\bMen and women\b|\bWomen and Men\b|\bWomen and men\b)/g, 'People')
+                                   .replace(/(\bmen and women\b|\bwomen and men\b)/g, 'people')
+                                   .replace(/(\bMen\b|\bWomen\b)/g, 'People')
+                                   .replace(/(men\b|women\b|\Bsirs\b|\Bladies\b)/g, 'people')
+                                   .replace(/(\bMan and Woman\b|\bMan and woman\b|\bWoman and Man\b|\bWoman and man\b)/g, 'Person')
+                                   .replace(/(\bman and woman\b|\bwoman and man\b)/g, 'person')
+                                   .replace(/(\bMan\b|\bWoman\b)/g, 'Person')
+                                   .replace(/(man\b|woman\b|\Bsir\b|\Blady\b)/g, 'person')
+                                   .replace(/(\bMankind\b|\bWomankind\b)/g, 'Humanity')
+                                   .replace(/(\bmankind\b|\bwomankind\b)/g, 'humanity')
+                                   .replace(/(\bLadies and Gentlemen\b|\bLadies and gentlemen\b|\bGentlemen and Ladies\b|\bGentlemen and ladies\b)/g, 'Esteemed colleagues')
+                                   .replace(/(\bladies and gentlemen\b|\bgentlemen and ladies\b)/g, 'esteemed colleagues')
+                                   .replace(/(\bSirs\b|\bGentlemen\b|\bLadies\b)/g, 'Esteemed colleagues')
+                                   .replace(/(\bsirs\b|\bgentlemen\b|\bladies\b)/g, 'esteemed colleagues')
+                                   .replace(/(\bSir\b|\bGentleman\b|\bMadam\b|\bLady\b)/g, 'Honored person')
+                                   .replace(/(\bsir\b|\bgentleman\b|\bmadam\b|\blady\b)/g, 'honored person')
+                                   .replace(/(\bFathers\b|\bDads\b|\bMothers\b|\bMoms\b|\bFather and Mother\b|\bFather and mother\b|\bMother and Father\b|\bMother and father\b|\bDad and Mom\b|\bDad and mom\b|\bMom and Dad\b|\bMom and dad\b)/g, 'Parents')
+                                   .replace(/(fathers\b|dads\b|mothers\b|moms\b|\bfather and mother\b|\bmother and father\b|\bdad and mom\b|\bmom and dad\b)/g, 'parents')
+                                   .replace(/(\bFather\b|\bDad\b|\bMother\b|\bMom\b)/g, 'Parent')
+                                   .replace(/(father\b|dad\b|mother\b|mom\b)/g, 'parent')
+                                   .replace(/(\bGrandpa and Grandma\b|\bGrandpa and grandma\b|\bGrandma and Grandpa\b|\bGrandma and grandpa\b)/g, 'Grandparents')
+                                   .replace(/(\bgrandpa and grandma\b|\bgrandma and grandpa\b)/g, 'grandparents')
+                                   .replace(/(\bGrandpa\b|\bGrampa\b|\bGramps\b|\bGrandma\b|\bGramma\b)/g, 'Grandparent')
+                                   .replace(/(\bgrandpa\b|\bgrampa\b|\bgramps\b|\bgrandma\b|\bgramma\b)/g, 'grandparent')
+                                   .replace(/(\bAunt and Uncle\b|\bAunt and uncle\b|\bAunts and Uncle\b|\bAunts and uncle\b|\bAunt and Uncles\b|\bAunt and uncles\b|\bAunts and Uncles\b|\bAunts and uncles\b|\bUncle and Aunt\b|\bUncle and aunt\b|\bUncles and Aunt\b|\bUncles and aunt\b|\bUncle and Aunts\b|\bUncle and aunts\b|\bUncles and Aunts\b|\bUncles and aunts\b)/g, 'Auncles')
+                                   .replace(/(\baunt and uncle\b|\baunts and uncle\b|\baunt and uncles\b|\baunts and uncles\b|\buncle and aunt\b|\buncles and aunt\b|\buncle and aunts\b|\buncles and aunts\b)/g, 'auncles')
+                                   .replace(/(\bAunts\b|\bUncles\b)/g, 'Auncles')
+                                   .replace(/(\baunts\b|\buncles\b)/g, 'auncles')
+                                   .replace(/(\bAunt\b|\bUncle\b)/g, 'Auncle')
+                                   .replace(/(\baunt\b|\buncle\b)/g, 'auncle')
+                                   .replace(/(\bBrother and Sister\b|\bBrother and sister\b|\bBrothers and Sister\b|\bBrothers and sister\b|\bBrother and Sisters\b|\bBrother and sisters\b|\bBrothers and Sisters\b|\bBrothers and sisters\b|\bSister and Brother\b|\bSister and brother\b|\bSisters and Brother\b|\bSisters and brother\b|\bSister and Brothers\b|\bSister and brothers\b|\bSisters and Brothers\b|\bSisters and brothers\b)/g, 'Siblings')
+                                   .replace(/(\bbrother and sister\b|\bbrothers and sister\b|\bbrother and sisters\b|\bbrothers and sisters\b|\bsister and brother\b|\bsisters and brother\b|\bsister and brothers\b|\bsisters and brothers\b)/g, 'siblings')
+                                   .replace(/(\bBrothers\b|\bSisters\b)/g, 'Siblings')
+                                   .replace(/(\bbrothers\b|\bsisters\b)/g, 'siblings')
+                                   .replace(/(\bBrother\b|\bSister\b)/g, 'Sibling')
+                                   .replace(/(\bbrother\b|\bsister\b)/g, 'sibling')
+                                   .replace(/(\bGuy\b|\bDude\b)/g, 'Person')
+                                   .replace(/(\bGuys\b|\bDudes\b)/g, 'People')
+                                   .replace(/(\bBro\b)/g, 'Friend')
+                                   .replace(/(\bbro\b)/g, 'friend')
+                                   .replace(/(\Bbro\b|\bguy\b|\bdude\b)/g, 'person')
+                                   .replace(/(\bBros\b)/g, 'Friends')
+                                   .replace(/(bros\b)/g, 'friends')
+                                   .replace(/(\bguys\b|\bdudes\b)/g, 'people')
+                                   .replace(/(\bHusbands\b|\bWives\b|\bHusband and Wife\b|\bHusband and wife\b|\bWife and Husband\b|\bWife and husband\b)/g, 'Spouses')
+                                   .replace(/(\bhusbands\b|\bwives\b|\bhusband and wife\b|\bwife and husband\b)/g, 'spouses')
+                                   .replace(/(\bHusband\b|\bWife\b)/g, 'Spouse')
+                                   .replace(/(\bhusband\b|\bwife\b)/g, 'spouse')
+                                   .replace(/(\bBoyfriends\b|\bGirlfriends\b|\bBoyfriend and Girlfriend\b|\bBoyfriend and girlfriend\b|\bGirlfriend and Boyfriend\b|\bGirlfriend and boyfriend\b)/g, 'Partners')
+                                   .replace(/(\bboyfriends\b|\bgirlfriends\b|\bboyfriend and girlfriend\b|\bgirlfriend and boyfriend\b)/g, 'partners')
+                                   .replace(/(\bBoyfriend\b|\bGirlfriend\b)/g, 'Partner')
+                                   .replace(/(\bboyfriend\b|\bgirlfriend\b|\bbf\b|\bgf\b|\bb\/f\b|\bg\/f\b)/g, 'partner')
+                                   .replace(/(\bBoy and Girl\b|\bBoy and girl\b|\bBoys and Girl\b|\bBoys and girl\b|\bBoy and Girls\b|\bBoy and girls\b|\bBoys and Girls\b|\bBoys and girls\b|\bGirl and Boy\b|\bGirl and boy\b|\bGirls and Boy\b|\bGirls and boy\b|\bGirl and Boys\b|\bGirl and boys\b|\bGirls and Boys\b|\bGirls and boys\b)/g, 'Children')
+                                   .replace(/(\bboy and girl\b|\bboys and girl\b|\bboy and girls\b|\bboys and girls\b|\bgirl and boy\b|\bgirls and boy\b|\bgirl and boys\b|\bgirls and boys\b)/g, 'children')
+                                   .replace(/(\bSon and Daughter\b|\bSon and daughter\b|\bSons and Daughter\b|\bSons and daughter\b|\bSon and Daughters\b|\bSon and daughters\b|\bSons and Daughters\b|\bSons and daughters\b|\bDaughter and Son\b|\bDaughter and son\b|\bDaughters and Son\b|\bDaughters and son\b|\bDaughter and Sons\b|\bDaughter and sons\b|\bDaughters and Sons\b|\bDaughters and sons\b)/g, 'Children')
+                                   .replace(/(\bson and daughter\b|\bsons and daughter\b|\bson and daughters\b|\bsons and daughters\b|\bdaughter and son\b|\bdaughters and son\b|\bdaughter and sons\b|\bdaughters and sons\b)/g, 'children')
+                                   .replace(/(\bBoys\b|\bSons\b|\bGirls\b|\bDaughters\b)/g, 'Children')
+                                   .replace(/(\bboys\b|\bsons\b|\bgirls\b|\bdaughters\b)/g, 'children')
+                                   .replace(/(\bBoy\b|\bSon\b|\bGirl\b|\bDaughter\b)/g, 'Child')
+                                   .replace(/(\bboy\b|\bson\b|\bgirl\b|\bdaughter\b)/g, 'child');
+
+            if (replacedText !== text) {
+                element.replaceChild(document.createTextNode(replacedText), node);
+            }
+        }
+    }
+}
